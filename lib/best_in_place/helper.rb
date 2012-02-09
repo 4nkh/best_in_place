@@ -36,7 +36,7 @@ module BestInPlace
       out << " data-original-content='#{object.send(field)}'" if opts[:display_as]
       if !opts[:sanitize].nil? && !opts[:sanitize]
         out << " data-sanitize='false'>"
-        out << sanitize(value, :tags => %w(b i u s a strong em p h1 h2 h3 h4 h5 ul li ol hr pre span img br), :attributes => %w(id class href))
+        out << autolink(sanitize(value, :tags => %w(b i u s a strong em p h1 h2 h3 h4 h5 ul li ol hr pre span img br), :attributes => %w(id class href)))
       else
         out << ">#{sanitize(value, :tags => nil, :attributes => nil)}"
       end
